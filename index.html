@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift For You</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(to right, #17dcffb4, #1bff2eb4);
+        }
+
+        .container {
+            color: #1a1a1a;
+            text-decoration: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #1a1a1a;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            background: linear-gradient(to right, #1bff2e, #17dcff);
+            box-shadow: 0 0 10px 5px #1a1a1a;
+        }
+
+        .container h1 {
+            font-weight: normal;
+            text-align: center;
+        }
+
+        .container p {
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #form label {
+            font-size: 1.25rem;
+            text-align: center;
+        }
+
+        #form input {
+            display: block;
+            margin: 0.5rem 0;
+            padding: 0.25rem 0.5rem;
+            outline: none;
+            border: none;
+            border-radius: 0.25rem;
+        }
+
+        #form input[type="text"] {
+            width: 100%;
+            font-size: 1.5rem;
+
+        }
+
+        #form input[type="submit"] {
+            margin: 2rem auto 0;
+            font-size: 1.25rem;
+            background-color: #fff;
+            color: #1a1a1a;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form" class="container">
+        <label for="getName">Please Enter your Name to proceed</label>
+        <input type="text" name="getName" id="getName" required>
+        <input type="submit" value="Let's GO">
+    </form>
+
+    <a href="./gift.html">
+        <div id="main" class="container hidden">
+            <h1>Here's a gift for you <span id="name">NAME</span></h1>
+            <p>click on this to reveal your gift</p>
+        </div>
+    </a>
+    <script>
+        const form = document.getElementById("form");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const getNameVal = document.getElementById("getName").value;
+            const name = document.getElementById("name");
+            name.innerText = getNameVal;
+
+            form.classList.add("hidden");
+            const main = document.getElementById("main");
+            main.classList.remove("hidden");
+        })
+    </script>
+</body>
+
+</html>
